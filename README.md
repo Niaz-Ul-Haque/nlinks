@@ -1,5 +1,5 @@
 # nlinks
 
-Inorder to use my  cli pro
+In order to use my  cli program
 
-*nlinks <filename or link>*
+``nlinks [filename or link]``
