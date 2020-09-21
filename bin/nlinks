@@ -1,0 +1,3 @@
+#!/usr/bin/env node
+require = require('esm')(module /*, options */); //Allows us to use es models
+require('../src/cli').cli(process.argv);
