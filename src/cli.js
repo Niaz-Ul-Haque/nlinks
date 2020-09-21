@@ -1,4 +1,5 @@
 import { exit } from "process";
+const chalk = require('chalk');
 const { UrlChecker } = require("broken-link-checker");
 
 export function cli(args){
@@ -43,18 +44,22 @@ export function cli(args){
                             switch(result.http.response.statusCode) {
                                 case 200:
                                     msg = "GOOD";
+                                    console.log(chalk.green(`${i++} = ${msg} == ${result.http.response.statusCode} => ${result.url.original}`));
                                     break;
                                 case 404:
                                 case 400:
                                     msg = "BAD";
+                                    console.log(chalk.red(`${i++} = ${msg} == ${result.http.response.statusCode} => ${result.url.original}`));
+
                                     break;
                                 default:
                                     msg = "UNKNOWN";
+                                    console.log(chalk.white(`${i++} = ${msg} == ${result.http.response.statusCode} => ${result.url.original}`));
+
                             }
                            
-                            console.log(`${i++} = ${msg} == ${result.http.response.statusCode} => ${result.url.original}`);
-                        }
                         
+                        }
                     }
                 }
             );
