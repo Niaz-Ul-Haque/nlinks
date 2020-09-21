@@ -44,8 +44,8 @@ export function cli(args){
                                 case 200:
                                     msg = "GOOD";
                                     break;
-                                case 400:
                                 case 404:
+                                case 400:
                                     msg = "BAD";
                                     break;
                                 default:
@@ -55,9 +55,6 @@ export function cli(args){
                             console.log(`${i++} = ${msg} == ${result.http.response.statusCode} => ${result.url.original}`);
                         }
                         
-                    },
-                    "end": () => {
-                        //console.log("COMPLETED!");
                     }
                 }
             );
