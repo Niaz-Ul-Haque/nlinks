@@ -36,10 +36,23 @@ export function cli(args){
                     "error": (error) => {
                         console.error(error);
                     },
-                    "link": (result, customData) => {
+                    "link": (result) => {
                     
+                        let msg = "";
                         if(result.http.response) {
-                            console.log(`${i++} === ${result.http.response.statusCode} => ${result.url.original}`);
+                            switch(result.http.response.statusCode) {
+                                case 200:
+                                    msg = "GOOD";
+                                    break;
+                                case 400:
+                                case 404:
+                                    msg = "BAD";
+                                    break;
+                                default:
+                                    msg = "UNKNOWN";
+                            }
+                           
+                            console.log(`${i++} = ${msg} == ${result.http.response.statusCode} => ${result.url.original}`);
                         }
                         
                     },
