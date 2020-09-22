@@ -25,10 +25,6 @@ nlinks [filename or commands]
 ### Commands
 
 ```bash
-Works with both Unix or Windows commands
-```
-
-```bash
 Commands available (v0.1) >
      * '--v, --version, /v' : Will show the version of the cli
      * '--h, --help, /h' : Will open up list of params you can use
