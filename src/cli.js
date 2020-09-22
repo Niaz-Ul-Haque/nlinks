@@ -1,6 +1,8 @@
 import { exit } from "process";
 const chalk = require("chalk");
 const link = require("linkinator");
+const fs = require("fs");
+const readline = require("readline");
 
 export function cli(args) {
 	if (args[2] == "--help" || args[2] == "--h" || args[2] == "/h") {
@@ -24,9 +26,6 @@ export function cli(args) {
 		exit();
 	}
 
-	const fs = require("fs");
-	const readline = require("readline");
-
 	async function processLineByLine() {
 		const fileStream = fs.createReadStream(args[2]);
 		const rl = readline.createInterface({
@@ -40,7 +39,7 @@ export function cli(args) {
 		for await (const line of rl) {
 			const link_reg = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi;
 
-			var myArray = line.match(link_reg);
+			let myArray = line.match(link_reg);
 			if (myArray == null) continue;
 			myArray = line.match(link_reg)[0];
 
