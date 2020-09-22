@@ -1,5 +1,46 @@
 # nlinks
 
-In order to use my  cli program
+nlinks is an open sourced cli program which is used for finding the stauts of websites. You can use any files such as HTML, txt, srv, etc.
 
-``nlinks [filename or link]``
+2 types of test files are given in the repository. Both can be used or you can use your own file.
+
+### Status
+
+```bash
+Current version - ^0.1
+```
+
+### Installation
+
+```bash
+npm i -g https://github.com/Niaz-Ul-Haque/nlinks
+```
+
+### Usage
+
+```javascript
+nlinks [filename or commands]
+```
+
+### Commands
+
+```bash
+Works with both Unix or Windows commands
+```
+
+```bash
+Commands available (v0.1) >
+     * '--v, --version, /v' : Will show the version of the cli
+     * '--h, --help, /h' : Will open up list of params you can use
+     * '--f, --files, /f' : Will show the types of files the program can format
+```
+
+### Contributing
+
+As this is an open source project, pull requests are very welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+### License
+
+[MIT](https://choosealicense.com/licenses/mit/)
