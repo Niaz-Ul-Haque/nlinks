@@ -2,7 +2,7 @@
 
 nlinks is an open sourced cli program which is used for finding the stauts of websites. You can use any files such as HTML, txt, srv, etc.
 
-2 types of test files are given in the repository. Both can be used or you can use your own file.
+Few types of test files are given in the repository. All can be used seperately or you can use your own file.
 
 ### Status
 
