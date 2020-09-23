@@ -5,7 +5,7 @@ const fs = require("fs");
 const readline = require("readline");
 
 export function cli(args) {
-	if (args[2] == "--help" || args[2] == "--h" || args[2] == "/h") {
+	if (args[2] == "--help" || args[2] == "--h" || args[2] == "-h") {
 		console.log("Help Options");
 		console.log("'--v, --version, /v' : Will show the version of the cli");
 		console.log("'--h, --help, /h' : Will open up list of params you can use");
@@ -17,13 +17,13 @@ export function cli(args) {
 		console.log("Steps on how this cli works");
 		console.log("You should run like this 'nlinks <filename>'");
 		exit();
-	} else if (args[2] == "--version" || args[2] == "--v" || args[2] == "/v") {
+	} else if (args[2] == "--version" || args[2] == "--v" || args[2] == "-v") {
 		console.log("CLI Name: nlinks");
 		console.log("Version: ^0.1");
 		console.log("Made by: Mohammed Niaz Ul Haque");
 		console.log("Github: https://github.com/Niaz-Ul-Haque/nlinks");
 		exit();
-	} else if (args[2] == "--files" || args[2] == "--f" || args[2] == "/f") {
+	} else if (args[2] == "--files" || args[2] == "--f" || args[2] == "-f") {
 		console.log("All the files are supported except for direct links.");
 		console.log("Will be adding the functon on release 0.2 or 0.3");
 		exit();
