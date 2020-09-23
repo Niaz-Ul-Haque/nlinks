@@ -26,9 +26,9 @@ nlinks [filename or options]
 
 ```bash
 Options available (v0.1) >
-     * '--v, --version, /v' : Will show the version of the cli
-     * '--h, --help, /h' : Will open up list of params you can use
-     * '--f, --files, /f' : Will show the types of files the program can format
+     * '--v, --version, -v' : Will show the version of the cli
+     * '--h, --help, -h' : Will open up list of params you can use
+     * '--f, --files, -f' : Will show the types of files the program can format
 ```
 
 ### Contributing
