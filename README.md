@@ -19,13 +19,13 @@ npm i -g https://github.com/Niaz-Ul-Haque/nlinks
 ### Usage
 
 ```javascript
-nlinks [filename or commands]
+nlinks [filename or options]
 ```
 
 ### Commands
 
 ```bash
-Commands available (v0.1) >
+Options available (v0.1) >
      * '--v, --version, /v' : Will show the version of the cli
      * '--h, --help, /h' : Will open up list of params you can use
      * '--f, --files, /f' : Will show the types of files the program can format
