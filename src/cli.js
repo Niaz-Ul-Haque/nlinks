@@ -18,7 +18,10 @@ export function cli(args) {
 		console.log("You should run like this 'nlinks <filename>'");
 		exit();
 	} else if (args[2] == "--version" || args[2] == "--v" || args[2] == "/v") {
+		console.log("CLI Name: nlinks");
 		console.log("Version: ^0.1");
+		console.log("Made by: Mohammed Niaz Ul Haque");
+		console.log("Github: https://github.com/Niaz-Ul-Haque/nlinks");
 		exit();
 	} else if (args[2] == "--files" || args[2] == "--f" || args[2] == "/f") {
 		console.log("All the files are supported except for direct links.");
