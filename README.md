@@ -22,7 +22,7 @@ npm i -g https://github.com/Niaz-Ul-Haque/nlinks
 nlinks [filename or options]
 ```
 
-### Commands
+### Options
 
 ```bash
 Options available (v0.1) >
