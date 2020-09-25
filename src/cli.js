@@ -16,6 +16,7 @@ export function cli(args) {
 	} else if (args[2] == undefined) {
 		console.log("Steps on how this cli works");
 		console.log("You should run like this 'nlinks <filename>'");
+		console.log("Run the '--help' options for more helpful information");
 		exit();
 	} else if (args[2] == "--version" || args[2] == "--v" || args[2] == "-v") {
 		console.log("CLI Name: nlinks");
