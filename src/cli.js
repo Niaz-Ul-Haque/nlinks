@@ -1,9 +1,10 @@
+import { Console } from "console";
 import { exit } from "process";
 const chalk = require("chalk");
 const link = require("linkinator");
 const fs = require("fs");
 const readline = require("readline");
-
+require("dotenv").config();
 export function cli(args) {
 	let stat = "--all";
 	if (args[2] == "--help" || args[2] == "--h" || args[2] == "-h") {
@@ -45,6 +46,9 @@ export function cli(args) {
 
 		let i = 1;
 		let msg = "";
+		if (process.env.CLICOLOR == 0) {
+			chalk.level = 0;
+		}
 
 		for await (const line of rl) {
 			const link_reg = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi;
