@@ -5,13 +5,17 @@ const fs = require("fs");
 const readline = require("readline");
 
 export function cli(args) {
+	let stat = "--all";
 	if (args[2] == "--help" || args[2] == "--h" || args[2] == "-h") {
 		console.log("Help Options");
-		console.log("'--v, --version, /v' : Will show the version of the cli");
-		console.log("'--h, --help, /h' : Will open up list of params you can use");
+		console.log("'--v, --version, -v' : Will show the version of the cli");
+		console.log("'--h, --help, -h' : Will open up list of params you can use");
 		console.log(
-			"'--f, --files, /f' : Will show the type of files the program can format"
+			"'--f, --files, -f' : Will show the type of files the program can format"
 		);
+		console.log("'--all' : Will ouptut all the links");
+		console.log("'--good' : Will ouptut only the working links");
+		console.log("'--bad' : Will ouptut only the bad links");
 		exit();
 	} else if (args[2] == undefined) {
 		console.log("Steps on how this cli works");
@@ -28,6 +32,8 @@ export function cli(args) {
 		console.log("All the files are supported except for direct links.");
 		console.log("Will be adding the functon on release 0.2 or 0.3");
 		exit();
+	} else if (args[3] == "--all" || args[3] == "--good" || args[3] == "--bad") {
+		stat = args[3];
 	}
 
 	async function processLineByLine() {
@@ -54,34 +60,40 @@ export function cli(args) {
 				switch (results.links[0].status) {
 					case 200:
 						msg = "GOOD";
-						console.log(
-							chalk.green(
-								`${i++} = ${msg} == ${results.links[0].status} => ${
-									results.links[0].url
-								}`
-							)
-						);
+						if (stat == "--good" || stat == "--all") {
+							console.log(
+								chalk.green(
+									`${i++} = ${msg} == ${results.links[0].status} => ${
+										results.links[0].url
+									}`
+								)
+							);
+						}
 						break;
 					case 404:
 					case 400:
 						msg = "BAD";
-						console.log(
-							chalk.red(
-								`${i++} = ${msg} == ${results.links[0].status} => ${
-									results.links[0].url
-								}`
-							)
-						);
+						if (stat == "--bad" || stat == "--all") {
+							console.log(
+								chalk.red(
+									`${i++} = ${msg} == ${results.links[0].status} => ${
+										results.links[0].url
+									}`
+								)
+							);
+						}
 						break;
 					default:
 						msg = "UNKNOWN";
-						console.log(
-							chalk.white(
-								`${i++} = ${msg} == ${results.links[0].status} => ${
-									results.links[0].url
-								}`
-							)
-						);
+						if (stat == "--all") {
+							console.log(
+								chalk.white(
+									`${i++} = ${msg} == ${results.links[0].status} => ${
+										results.links[0].url
+									}`
+								)
+							);
+						}
 				}
 			}
 			simple();
