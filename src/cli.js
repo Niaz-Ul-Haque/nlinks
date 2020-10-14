@@ -1,12 +1,23 @@
-import { Console } from "console";
 import { exit } from "process";
+
 const chalk = require("chalk");
 const link = require("linkinator");
 const fs = require("fs");
 const readline = require("readline");
+
 require("dotenv").config();
+
+let flag = 0;
+
 export function cli(args) {
 	let stat = "--all";
+
+
+	if (args[3] == "--ignore" && args[4]){
+		console.log("WE MADE IT")
+		flag = 1
+	}
+
 	if (args[2] == "--help" || args[2] == "--h" || args[2] == "-h") {
 		console.log("Help Options");
 		console.log("'--v, --version, -v' : Will show the version of the cli");
@@ -55,6 +66,25 @@ export function cli(args) {
 
 			let myArray = line.match(link_reg);
 			if (myArray == null) continue;
+
+			if( flag = 1 ){
+				const ignoreULRfile = fs.createReadStream(args[4]);
+				const lineOfUrls = readline.createInterface({
+					input: ignoreULRfile,
+					crlfDelay: Infinity,
+				});
+				for await (let l of lineOfUrls) {
+					let arrayOfIgnores = l.match(link_reg);
+					if (arrayOfIgnores[0] === line){
+						continue;
+					} else{
+						flag = 0;
+					}
+				}
+			} 
+
+			if(flag = 1) continue
+
 			myArray = line.match(link_reg)[0];
 
 			async function simple() {
