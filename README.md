@@ -38,6 +38,10 @@ nlinks [ filename ] --all
 nlinks [ filename ] --good
 nlinks [ filename ] --bads
 
+
+![nlinks2](https://user-images.githubusercontent.com/44411777/95935132-87d8e880-0da0-11eb-986c-eb55dd3c8eba.gif)
+
+
 ### Ignore functionality
 
 nlinks [ filename ] --ignore [ example_ignore_urls.txt]
