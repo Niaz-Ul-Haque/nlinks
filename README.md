@@ -29,7 +29,18 @@ Options available (v0.1) >
      * '--v, --version, -v' : Will show the version of the cli
      * '--h, --help, -h' : Will open up list of params you can use
      * '--f, --files, -f' : Will show the types of files the program can format
+     * '--ignore' : Will the files provided. See exmaple below.
 ```
+
+### "--all", "--good", "--bad" functionality
+
+nlinks [ filename ] --all
+nlinks [ filename ] --good
+nlinks [ filename ] --bads
+
+### Ignore functionality
+
+nlinks [ filename ] --ignore [ example_ignore_urls.txt]
 
 ### Contributing
 

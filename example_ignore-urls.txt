@@ -1,0 +1,4 @@
+# Ignore All Seneca College URLs
+https://senecacollege.ca
+# Ignore all Learn@Seneca URLs
+https://learn.senecacollege.ca/
