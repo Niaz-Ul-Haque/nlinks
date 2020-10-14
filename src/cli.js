@@ -60,30 +60,33 @@ export function cli(args) {
 		}
 
 		for await (const line of rl) {
+			let flag2 = 1
 			const link_reg = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi;
 
 			let myArray = line.match(link_reg);
 			if (myArray == null) continue;
 
-			if( flag == 1 ){
+			if( flag == 1 && flag2 == 1){
 				const ignoreULRfile = fs.createReadStream(args[4]);
 				const lineOfUrls = readline.createInterface({
 					input: ignoreULRfile,
 					crlfDelay: Infinity,
 				});
 				for await (let l of lineOfUrls) {
-					let arrayOfIgnores = l.match(link_reg);
-					if (arrayOfIgnores != null){
-						if (arrayOfIgnores[0] === line){
-							continue;
+					let ignoreURL = l.match(link_reg);
+					if (ignoreURL != null){
+						if (ignoreURL.toString() === myArray.toString()){
+							console.log("SKIP / IGNORE")
+							flag2 = 1
+							break;
 						} else{
-							flag = 0;
+							flag2 = 0;
 						}
 					}
 				}
 			} 
 
-			if(flag == 1) continue
+			if(flag2 == 1) continue;
 
 			myArray = line.match(link_reg)[0];
 
@@ -128,11 +131,11 @@ export function cli(args) {
 								)
 							);
 						}
+						break;
 				}
 			}
 			simple();
 		}
 	}
-
 	processLineByLine();
 }
