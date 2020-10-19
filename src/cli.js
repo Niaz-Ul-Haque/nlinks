@@ -86,7 +86,7 @@ export function cli(args) {
 				}
 			} 
 
-			if(flag2 == 1) continue;
+			if(flag == 1  && flag2 == 1) continue;
 
 			myArray = line.match(link_reg)[0];
 
