@@ -4,17 +4,17 @@ const chalk = require("chalk");
 const link = require("linkinator");
 const fs = require("fs");
 const readline = require("readline");
+const fetch = require("node-fetch");
 
 require("dotenv").config();
 
 export function cli(args) {
 	let stat = "--all";
 	let flag = 0;
-
+	let telescoped = false;
 	if (args[3] == "--ignore" && args[4]) {
 		flag = 1;
 	}
-
 	if (args[2] == "--help" || args[2] == "--h" || args[2] == "-h") {
 		getHelp();
 		exit();
@@ -29,9 +29,14 @@ export function cli(args) {
 		exit();
 	} else if (args[3] == "--all" || args[3] == "--good" || args[3] == "--bad") {
 		stat = args[3];
+	} else if (args[3] == "--telescope") {
+		telescoped = true;
 	}
 
 	async function processLineByLine() {
+		if (telescoped) {
+			getTelescoped();
+		}
 		const fileStream = fs.createReadStream(args[2]);
 		const rl = readline.createInterface({
 			input: fileStream,
@@ -152,4 +157,25 @@ function getVersion() {
 function getFilesSupportedInfo() {
 	console.log("All the files are supported except for direct links.");
 	console.log("Will be adding the functon on release 0.2 or 0.3");
+}
+async function getTelescoped() {
+	fetch("http://localhost:3000/posts")
+		.then((response) => {
+			return response.json();
+		})
+		.then((links) => {
+			fs.truncate("telescope.txt", 0, function () {
+				for (let i = 0; i < 10; i++) {
+					fetch(`http://localhost:3000${links[i].url}`)
+						.then((res) => {
+							return res.json();
+						})
+						.then((telescopedLinks) => {
+							fs.appendFile("telescope.txt", telescopedLinks.html, (err) => {
+								if (err) console.log(err).then.process();
+							});
+						});
+				}
+			});
+		});
 }
