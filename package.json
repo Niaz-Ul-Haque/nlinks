@@ -1,39 +1,46 @@
 {
-	"name": "@Niaz/nlinks",
-	"version": "1.0.0",
-	"description": "loading",
-	"main": "src/index.js",
-	"bin": {
-		"@Niaz/nlinks": "bin/nlinks",
-		"nlinks": "bin/nlinks"
-	},
-	"publishConfig": {
-		"access": "public"
-	},
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Niaz-Ul-Haque/nlinks.git"
-	},
-	"keywords": [
-		"cli",
-		"nlinks"
-	],
-	"author": "",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/Niaz-Ul-Haque/nlinks/issues"
-	},
-	"homepage": "https://github.com/Niaz-Ul-Haque/nlinks#readme",
-	"dependencies": {
-		"arg": "^4.1.3",
-		"chalk": "^4.1.0",
-		"dotenv": "^8.2.0",
-		"esm": "^3.2.25",
-		"inquirer": "^7.3.3",
-		"linkinator": "^2.1.2",
-		"node-fetch": "^2.6.1"
-	}
+   "name": "@Niaz/nlinks",
+   "version": "1.0.0",
+   "description": "loading",
+   "main": "src/index.js",
+   "bin": {
+      "@Niaz/nlinks": "bin/nlinks",
+      "nlinks": "bin/nlinks"
+   },
+   "publishConfig": {
+      "access": "public"
+   },
+   "scripts": {
+      "prettier": "prettier --write \"./**/*.{md,jsx,json,html,css,js,yml}\"",
+      "prettier-check": "prettier --check \"./**/*.{md,jsx,json,html,css,js,yml}\"",
+      "eslint-fix": "eslint --fix --ignore-path .gitignore .",
+      "eslint": "eslint --ignore-path .gitignore ."
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Niaz-Ul-Haque/nlinks.git"
+   },
+   "keywords": [
+      "cli",
+      "nlinks"
+   ],
+   "author": "",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/Niaz-Ul-Haque/nlinks/issues"
+   },
+   "homepage": "https://github.com/Niaz-Ul-Haque/nlinks#readme",
+   "dependencies": {
+      "arg": "^4.1.3",
+      "chalk": "^4.1.0",
+      "dotenv": "^8.2.0",
+      "esm": "^3.2.25",
+      "inquirer": "^7.3.3",
+      "linkinator": "^2.1.2",
+      "node-fetch": "^2.6.1"
+   },
+   "devDependencies": {
+      "eslint": "^7.13.0",
+      "prettier": "2.1.2"
+   }
 }

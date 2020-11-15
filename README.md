@@ -10,42 +10,6 @@ Few types of test files are given in the repository. All can be used seperately 
 Current version - ^0.1
 ```
 
-### Installation
-
-```bash
-npm i -g https://github.com/Niaz-Ul-Haque/nlinks
-```
-
-### Usage
-
-```javascript
-nlinks [filename or options]
-```
-
-### Options
-
-```bash
-Options available (v0.1) >
-     * '--v, --version, -v' : Will show the version of the cli
-     * '--h, --help, -h' : Will open up list of params you can use
-     * '--f, --files, -f' : Will show the types of files the program can format
-     * '--ignore' : Will the files provided. See exmaple below.
-```
-
-### "--all", "--good", "--bad" functionality
-
-nlinks [ filename ] --all
-nlinks [ filename ] --good
-nlinks [ filename ] --bads
-
-
-![nlinks2](https://user-images.githubusercontent.com/44411777/95935132-87d8e880-0da0-11eb-986c-eb55dd3c8eba.gif)
-
-
-### Ignore functionality
-
-nlinks [ filename ] --ignore [ example_ignore_urls.txt]
-
 ### Contributing
 
 As this is an open source project, pull requests are very welcome. For major changes, please open an issue first to discuss what you would like to change.
