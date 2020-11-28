@@ -5,15 +5,20 @@ const link = require('linkinator');
 const fs = require('fs');
 const readline = require('readline');
 const fetch = require('node-fetch');
-
+let globalArgs;
 require('dotenv').config();
 
 export function cli(args) {
+   globalArgs = args[2];
    let stat = '--all';
    let flag = 0;
+   let ifLink = false;
    let telescoped = false;
    if (args[3] == '--ignore' && args[4]) {
       flag = 1;
+   }
+   if (!args[3]) {
+      ifLink = true;
    }
    if (args[2] == '--help' || args[2] == '--h' || args[2] == '-h') {
       getHelp();
@@ -33,16 +38,67 @@ export function cli(args) {
       telescoped = true;
    }
 
+   const path = `./${args[2]}`;
+   try {
+      if (fs.existsSync(path)) {
+         processLineByLine();
+      } else {
+         async function simple() {
+            const results = await link.check({
+               path: `${args[2]}`,
+               concurrency: 1,
+            });
+            let msg = '';
+            if (results.links[0].state != 'BROKEN') {
+               switch (results.links[0].state) {
+                  case 'OK':
+                     msg = 'GOOD';
+                     console.log(
+                        chalk.green(
+                           `${msg} == ${results.links[0].status} => ${results.links[1].parent}`
+                        )
+                     );
+                     break;
+                  case 'BROKEN':
+                     msg = 'BAD';
+                     console.log(
+                        chalk.red(
+                           `${msg} == ${results.links[0].status} => ${results.links[1].parent}`
+                        )
+                     );
+                     break;
+                  default:
+                     msg = 'UNKNOWN';
+                     console.log(
+                        chalk.white(
+                           `${msg} == ${results.links[0].status} => ${results.links[1].parent}`
+                        )
+                     );
+                     break;
+               }
+            } else {
+               msg = 'UNKNOWN';
+               console.log(
+                  chalk.white(`${msg} == ${results.links[0].status} => ${results.links[0].url}`)
+               );
+            }
+         }
+         simple();
+      }
+   } catch (err) {
+      console.error(err);
+   }
+
    async function processLineByLine() {
       if (telescoped) {
          getTelescoped();
       }
+
       const fileStream = fs.createReadStream(args[2]);
       const rl = readline.createInterface({
          input: fileStream,
          crlfDelay: Infinity,
       });
-
       let i = 1;
       let msg = '';
       if (process.env.CLICOLOR == 0) {
@@ -127,7 +183,6 @@ export function cli(args) {
          simple();
       }
    }
-   processLineByLine();
 }
 
 function getHelp() {

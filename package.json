@@ -14,7 +14,8 @@
       "prettier": "prettier --write \"./**/*.{md,jsx,json,html,css,js,yml}\"",
       "prettier-check": "prettier --check \"./**/*.{md,jsx,json,html,css,js,yml}\"",
       "eslint-fix": "eslint --fix --ignore-path .gitignore .",
-      "eslint": "eslint --ignore-path .gitignore ."
+      "eslint": "eslint --ignore-path .gitignore .",
+      "test": "jest"
    },
    "repository": {
       "type": "git",
@@ -40,7 +41,8 @@
       "node-fetch": "^2.6.1"
    },
    "devDependencies": {
-      "eslint": "^7.13.0",
+      "eslint": "^7.14.0",
+      "jest": "^26.6.3",
       "prettier": "2.1.2"
    }
 }
