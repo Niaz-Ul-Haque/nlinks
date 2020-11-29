@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1606614525385" clover="3.2.0">
-  <project timestamp="1606614525386" name="All files">
+<coverage generated="1606615775024" clover="3.2.0">
+  <project timestamp="1606615775024" name="All files">
     <metrics statements="18" coveredstatements="14" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2" elements="24" coveredelements="19" complexity="0" loc="18" ncloc="18" packages="1" files="1" classes="1"/>
     <file name="nlinksTester.js" path="C:\Users\Niaz\Desktop\git\nlinks\test\nlinksTester.js">
       <metrics statements="18" coveredstatements="14" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
