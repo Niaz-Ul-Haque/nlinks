@@ -5,10 +5,10 @@ const fs = require('fs');
 function linkToCheck(singleLink) {
    try {
       async function simple() {
-         const results = await link.check({
-            path: singleLink,
-            concurrency: 1,
-         });
+         //  const results = await link.check({
+         //     path: singleLink,
+         //     concurrency: 1,
+         //  });
          let msg = '';
          if (results.links[0].state != 'BROKEN') {
             switch (results.links[0].state) {
