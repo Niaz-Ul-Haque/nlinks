@@ -21,6 +21,22 @@ test('testing custom link - MOck Test Bad Link - https://google.com', async () =
    );
    expect(await linkToCheck(`https://google.com`)).toBe(expected);
 });
+
+test('testing custom link - Mock Test | No link send - ""', async () => {
+   let expected = chalk.white(`UNKNOWN == 0 => `);
+   link.check.mockReturnValue(
+      Promise.resolve({ links: [{ state: 'UNKNOWN', status: 0, url: '' }] })
+   );
+   expect(await linkToCheck('')).toBe(expected);
+});
+
+test('testing custom link - Mock Test | Integer send - ""', async () => {
+   let expected = chalk.white(`UNKNOWN == 0 => `);
+   link.check.mockReturnValue(
+      Promise.resolve({ links: [{ state: 'UNKNOWN', status: 0, url: '' }] })
+   );
+   expect(await linkToCheck(234)).toBe(expected);
+});
 /*
 
 const linkToCheck = require('./nlinksTester');
