@@ -10,6 +10,10 @@ npm i -g https://github.com/Niaz-Ul-Haque/nlinks
 nlinks [filename or options]
 npm run prettier // Source Code Formatter
 npm run eslint   // Source Code Linter
+
+// Testing Commands
+npm run test
+npx jest --coverage
 ```
 
 ### Options
