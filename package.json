@@ -1,7 +1,7 @@
 {
    "name": "@Niaz/nlinks",
    "version": "1.0.0",
-   "description": "loading",
+   "description": "A CLI link checker that checks out if a link is working or not. Links can be plucked out from a filee or direct.",
    "main": "src/index.js",
    "bin": {
       "@Niaz/nlinks": "bin/nlinks",
@@ -25,7 +25,7 @@
       "cli",
       "nlinks"
    ],
-   "author": "",
+   "author": "Mohammed Niaz Ul Haque",
    "license": "ISC",
    "bugs": {
       "url": "https://github.com/Niaz-Ul-Haque/nlinks/issues"
