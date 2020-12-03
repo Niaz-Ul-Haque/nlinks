@@ -1,5 +1,5 @@
 {
-   "name": "@Niaz/nlinks",
+   "name": "nlinks",
    "version": "1.0.0",
    "description": "A CLI link checker that checks out if a link is working or not. Links can be plucked out from a filee or direct.",
    "main": "src/index.js",
